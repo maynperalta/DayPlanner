@@ -1,3 +1,5 @@
+/* There was a CSS stylesheet provided with the assignment with many classes already coded out. I had some trouble trying to get them to function properly when generating the elements in JavaScript. Ultimately, I wound up creating classes while I created my rows and columns and coded new CSS here. I was able to use some of it though. The body, textarea, jumbotron, and row selectors I was able to use. The rest I started over with, which took less time than to try and force the other classes to fit.*/
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -24,15 +26,6 @@ textarea{
   background-color: rgb(230, 230, 230);
   width: auto;
 }
-/* 
-.description{
-  white-space: pre-wrap;
-}
-
-.time-block{
-  text-align: center;
-  border-radius: 15px;
-} */
 
 .row {
   white-space: pre-wrap;
@@ -41,36 +34,6 @@ textarea{
   border-radius: 5px;
   background-color: whitesmoke;
 }
-/* 
-.hour {
-  background-color: #ffffff;
-  color: #000000;
-  border-top: 1px dashed #000000;
-}
-
-.past {
-  background-color: #d3d3d3;
-  color: white;
-}
-
-.present {
-  background-color: #ff6961;
-  color: white;
-}
-
-.future {
-  background-color: #77dd77;
-  color: white;
-}
-
-.saveBtn {
-  border-left: 1px solid black;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background-color: #06AED5;
-  color: white;
-  width: 50px;
-} */
 
 i:hover {
   font-size: 30px;
@@ -78,12 +41,6 @@ i:hover {
   color: whitesmoke;
   cursor: pointer;
 }
-
-/*
-#time {
-  background-color: white;
-  border-top: solid 1px black;
-} */
 
 .fa-save {
   color: white;
@@ -97,11 +54,6 @@ i:hover {
   transition: all .3s ease-in-out;
   background-color: lightblue;
 }
-/* 
-#save {
-  background-color:violet;
-  align-content: center;
-} */
 
 .saveCol {
   background-color: lightgreen;
@@ -137,8 +89,33 @@ footer {
   padding: 10px;
   text-align: center;
   border-top: 2px solid whitesmoke;
-  }
+}
 
 .container {
     margin-bottom: 80px;
+}
+
+/* Although responsiveness wasn't a specific requirement in the ReadMe of the assignment, I took the time to ensure the page would look good on some smaller viewports as well. I haven't worked much with media queries before, save one activity in class, but with the help of a learning assitant and a YouTube video, the page looks decent on tablets and larger smartphones. */
+
+@media all and (max-width: 770px) {
+  .row {
+    height: auto;
+  }
+  .timeCol {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-right: none;
+    border-bottom: 1px solid black;
+    border-bottom-left-radius: 0;
+  }
+  .saveCol{
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-left: none;
+    border-top: 1px solid black;
+    border-top-right-radius: 0;
+  }
+  .planned {
+    border: none;
+  }
 }
