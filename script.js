@@ -15,10 +15,10 @@ for (var hour=9; hour <= 17; hour ++){
 
     var rowEl = $("<div>");
     rowEl.addClass("row");
-    rowEl.addClass("scheRow");
+    rowEl.addClass("scheCol");
 
     var timeEl = $("<div>");
-    timeEl.addClass("col-md-2 timeRow");
+    timeEl.addClass("col-md-2 timeCol");
 
     var timeDisp = $("<span>");
     timeDisp.attr("class", "timebox");
@@ -48,7 +48,7 @@ for (var hour=9; hour <= 17; hour ++){
     colEl.append(activity);
 
     var saveEl = $("<div>");
-    saveEl.addClass("col-md-1 saveRow");
+    saveEl.addClass("col-md-1 saveCol");
 
     var saveIcon = $("<i>");
     saveIcon.attr("class", "fa fa-save saveIcon");
@@ -61,14 +61,35 @@ for (var hour=9; hour <= 17; hour ++){
     $('#schedule').append(rowEl);
 };
 
-function rowColor (hourEl, hour) { 
+//This function is to set the row colors based on the time of day. I didn't code this out until the day before the due date, so I only have one shot at making sure this works correctly. If the hour is in the past, the color should be greyed out, if it's in the future, it should be blue and if it's the present hour, it should be pink.
 
-
-    if ( hour < Hour24) {
-      hourEl.css("background-color", "lightgrey")
-    } else if ( hour > nowHour24) {
-      hourEl.css("background-color", "skyblue")
+function rowColor (rowEl, hour) { 
+    if (hour < hour24) {
+      rowEl.css("background-color", "lightgrey")
+    } else if ( hour > hour24) {
+      rowEl.css("background-color", "skyblue")
     } else {
-      hourEl.css("background-color", "pink")
+      rowEl.css("background-color", "pink")
     }
+  };
+
+//Here is where we finally store the inputs into the input textarea of the row. 
+
+
+$(document).on("click", "i", function(event) {
+    event.preventDefault();
+    var index = $(this).attr("save-id");
+    var inputId = "#input-" + index;
+    var value = $(inputId).val();
+
+    textArray[index] = value;
+
+    localStorage.setItem("savedPlans", JSON.stringify(textArray));
+});
+
+var storedPlans = JSON.parse(localStorage.getItem("savedPlans"));
+  if (storedPlans !== null) {
+    textArray = storedPlans;
+  } else {
+    textArray = new Array;
   };
