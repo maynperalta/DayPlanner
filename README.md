@@ -15,7 +15,7 @@ The vast majority of this assignment was coded via jQuery. There was a lot of tr
 
 ![](Assets/moment.png)
 
-Next I created a "for" loop in order to create all of the elements I would need in order to have a functioning schedule. I had already been provided the Bootstrap cdn, so I made sure to use Bootstrap-specific classes in order to work with a bootstrap grid to have a clean looking schedule. The loop would create rows, which would alsoe have columns appended to them that would have the time, area to input text, and an icon to save the text. a snippet of the loop is below.
+Next I created a "for" loop in order to create all of the elements I would need in order to have a functioning schedule. I had already been provided the Bootstrap cdn, so I made sure to use Bootstrap-specific classes in order to work with a bootstrap grid to have a clean looking schedule. The loop would create rows, which would also have columns appended to them that would have the time, area to input text, and an icon to save the text. A snippet of the loop is below.
 
 ![](Assets/loop.png)
 
@@ -34,4 +34,4 @@ After all of that was finished, all that was left was refactoring the code to cl
 
 ## Final Thoughts
 
-I didn't get as much time to work on this project as I had on previous assignments, so I felt a bit of pressure heading into the weekend. I'm a bit disappointed that I couldn't figure out how to use every provided CSS class in the project because they were provided for a reason. With the exception of the local storage bit (which I admit is a weak area of my knowledge at the moment), this homework project was a fair bit easier than the previous "Code Quiz" assigment. I did have to ask for assistance a few times due to being completely stuck, and I also did the suggested "Google Fu" that the instructors and TAs say is common.
+I didn't get as much time to work on this project as I had on previous assignments, so I felt a bit of pressure heading into the weekend. I'm a bit disappointed that I couldn't figure out how to use every provided CSS class in the project because they were provided for a reason. With the exception of the local storage bit (which I admit is a weak area of my knowledge at the moment), this homework project was a fair bit easier than the previous "Code Quiz" assigment. I did have to ask for assistance a few times due to being completely stuck, and I also did the suggested "Google Fu" that the instructors and TAs say is common. I hope the final result meets all acceptable criteria.
