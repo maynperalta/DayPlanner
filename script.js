@@ -10,12 +10,12 @@ var hour24 = moment().format("H");
 var scheEl = $("schedule");
 
 scheEl.empty();
-for (var hour=9; hour <= 17; hour ++){
-    var index=hour-9;
+for (var hour = 9; hour <= 17; hour ++){
+    var index = hour - 9;
 
     var rowEl = $("<div>");
-    rowEl.addClass("row");
-    rowEl.addClass("scheCol");
+    rowEl.addClass("row scheRow");
+    rowEl.attr("hour-index", hour);
 
     var timeEl = $("<div>");
     timeEl.addClass("col-md-2 timeCol");
@@ -39,8 +39,11 @@ for (var hour=9; hour <= 17; hour ++){
     timeEl.append(timeDisp);
 
     var activity = $("<textarea>");
-    activity.attr("type", "text")
+    activity.attr("id", `input-${index}`);
+    activity.attr("hour-index", index);
+    activity.attr("type", "text");
     activity.attr("class", "dailyPlan");
+    // activity.val(planArray[index]);
 
     var colEl = $("<div>");
     colEl.addClass("col-md-9 planned");
@@ -52,6 +55,8 @@ for (var hour=9; hour <= 17; hour ++){
 
     var saveIcon = $("<i>");
     saveIcon.attr("class", "fa fa-save saveIcon");
+    saveIcon.attr("save-id", index);
+    saveIcon.attr("id", `saveid-${index}`);
 
     rowEl.append(saveEl);
     saveEl.append(saveIcon);
@@ -78,18 +83,23 @@ function rowColor (rowEl, hour) {
 
 $(document).on("click", "i", function(event) {
     event.preventDefault();
-    var index = $(this).attr("save-id");
-    var inputId = "#input-" + index;
-    var value = $(inputId).val();
+    var $index = $(this).attr("save-id");
 
-    textArray[index] = value;
+    var inputId = "#textarea-"+$index;
+    var $value = $(inputId).val();
 
-    localStorage.setItem("savedPlans", JSON.stringify(textArray));
+    planArray[$index] = $value;
+
+
+    localStorage.setItem("savedPlans", JSON.stringify(planArray));
+    localStorage.setItem($index, $value);
 });
 
 var storedPlans = JSON.parse(localStorage.getItem("savedPlans"));
   if (storedPlans !== null) {
-    textArray = storedPlans;
-  } else {
-    textArray = new Array;
+   planArray = storedPlans;
+  }else{
+      planArray = new Array(9);
+      planArray[4] = "Test";
+  
   };
