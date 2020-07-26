@@ -1,4 +1,13 @@
 
+var storedPlans = JSON.parse(localStorage.getItem("savedPlans"));
+if (storedPlans !== null) {
+ planArray = storedPlans;
+}else{
+    planArray = new Array(9);
+    planArray[4] = "Test";
+
+};
+
 
 var currentTime = document.getElementById("currentDay");
 currentTime.innerHTML = moment().format("dddd[,] MMMM Do[,] YYYY");
@@ -29,6 +38,9 @@ for (var hour = 9; hour <= 17; hour ++){
     if (hour>12){
         hourDisp = hour - 12;
         pm = "pm"
+    }else if (hour === 12){
+        hourDisp = hour;
+        pm = "pm";
     }else{
         hourDisp = hour;
         pm = "am";
@@ -43,7 +55,7 @@ for (var hour = 9; hour <= 17; hour ++){
     activity.attr("hour-index", index);
     activity.attr("type", "text");
     activity.attr("class", "dailyPlan");
-    // activity.val(planArray[index]);
+    activity.val(planArray[index]);
 
     var colEl = $("<div>");
     colEl.addClass("col-md-9 planned");
@@ -84,22 +96,16 @@ function rowColor (rowEl, hour) {
 $(document).on("click", "i", function(event) {
     event.preventDefault();
     var $index = $(this).attr("save-id");
+    console.log($index);
 
-    var inputId = "#textarea-"+$index;
-    var $value = $(inputId).val();
+    var inputId = "#textarea-" + $index;
+    var $value = $(this).parent().parent().find("textarea").val();
+    console.log(planArray);
 
     planArray[$index] = $value;
+    console.log(planArray);
 
 
     localStorage.setItem("savedPlans", JSON.stringify(planArray));
     localStorage.setItem($index, $value);
 });
-
-var storedPlans = JSON.parse(localStorage.getItem("savedPlans"));
-  if (storedPlans !== null) {
-   planArray = storedPlans;
-  }else{
-      planArray = new Array(9);
-      planArray[4] = "Test";
-  
-  };

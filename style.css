@@ -71,9 +71,11 @@ textarea{
   width: 50px;
 }
 
-.i:hover {
-  font-size: 20px;
+i:hover {
+  font-size: 30px;
   transition: all .3s ease-in-out;
+  color: whitesmoke;
+  cursor: pointer;
 }
 
 
@@ -84,14 +86,15 @@ textarea{
 
 .fa-save {
   color: white;
-  background-color: lightgreen;
   display: grid;
   place-content: center;
   font-size: 24px;
+  z-index: 2;
 }
 
-.fa:hover:{
-  opacity: 0.8;
+.saveCol:hover{
+  transition: all .3s ease-in-out;
+  background-color: lightblue;
 }
 
 #save {
@@ -102,19 +105,18 @@ textarea{
 .saveCol {
   background-color: lightgreen;
   border-left: solid 1px black;
-  border-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
   text-align: center;
   display: grid;
   place-content: center;
 }
-.saveCol:hover {
-  opacity: 0.7;
-}
 
 .timeCol {
   border-right: solid 1px black;
-  background-color: lightblue;
-  border-radius: 5px;
+  background-color: whitesmoke;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
   text-align: center;
   display: grid;
   place-content: center;
@@ -123,7 +125,8 @@ textarea{
 }
 
 .planned {
-  border-radius: 5px;
+  border-left: 5px solid gray;
+  border-right: 5px solid gray;
 }
 
 footer {
