@@ -11,7 +11,6 @@ var currentTime = document.getElementById("currentDay");
 currentTime.innerHTML = moment().format("dddd[,] MMMM Do[,] YYYY");
 
 
-// var hour12 = moment().format("h");
 var hour24 = moment().format("H");
 
 var scheEl = $("schedule");
@@ -28,7 +27,7 @@ for (var hour = 9; hour <= 17; hour ++){
     timeEl.addClass("col-md-2 timeCol");
 
     var timeDisp = $("<span>");
-    timeDisp.attr("class", "timebox");
+    // timeDisp.attr("class", "timebox");
 
     var hourDisp = 0;
     var pm = "";
@@ -52,7 +51,7 @@ for (var hour = 9; hour <= 17; hour ++){
     activity.attr("id", `input-${index}`);
     activity.attr("hour-index", index);
     activity.attr("type", "text");
-    activity.attr("class", "dailyPlan");
+    // activity.attr("class", "dailyPlan");
     activity.val(planArray[index]);
 
     var colEl = $("<div>");
@@ -76,19 +75,19 @@ for (var hour = 9; hour <= 17; hour ++){
     $('#schedule').append(rowEl);
 };
 
-//This function is to set the row colors based on the time of day. I didn't code this out until the day before the due date, so I only have one shot at making sure this works correctly. If the hour is in the past, the color should be greyed out, if it's in the future, it should be blue and if it's the present hour, it should be pink.
+//This function is to set the row colors based on the time of day. I didn't code this out until the day before the due date, so I only have one shot at making sure this works correctly. There was a class provided in the CSS, but I couldn't get it to work correctly here in JavaScript. Instead, I pulled the colors to indicate if the hour is in the past, present, or future.
 
 function rowColor (rowEl, hour) { 
     if (hour < hour24) {
-      rowEl.css("background-color", "lightgrey")
+      rowEl.css("background-color", "#d3d3d3")
     } else if ( hour > hour24) {
-      rowEl.css("background-color", "skyblue")
+      rowEl.css("background-color", "#77dd77")
     } else {
-      rowEl.css("background-color", "pink")
+      rowEl.css("background-color", "#ff6961")
     }
   };
 
-//Here is where we finally store the inputs into the input textarea of the row. 
+//Here is where we finally store the inputs into the input textarea of the row. There is an event listener waiting for a click on the FontAwesome save icon, which is given the <i> syntax above. Once that is clicked, we have a couple of variables that will connect the event listener to the text area of the row that was defined above. Also, it will save the input in the corresponding array index as a string.
 
 
 $(document).on("click", "i", function(event) {
@@ -96,7 +95,6 @@ $(document).on("click", "i", function(event) {
     var $index = $(this).attr("save-id");
     console.log($index);
 
-    // var inputId = "#textarea-" + $index;
     var $value = $(this).parent().parent().find("textarea").val();
     console.log(planArray);
 
