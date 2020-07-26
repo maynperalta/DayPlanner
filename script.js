@@ -4,8 +4,6 @@ if (storedPlans !== null) {
  planArray = storedPlans;
 }else{
     planArray = new Array(9);
-    planArray[4] = "Test";
-
 };
 
 
@@ -13,7 +11,7 @@ var currentTime = document.getElementById("currentDay");
 currentTime.innerHTML = moment().format("dddd[,] MMMM Do[,] YYYY");
 
 
-var hour12 = moment().format("h");
+// var hour12 = moment().format("h");
 var hour24 = moment().format("H");
 
 var scheEl = $("schedule");
@@ -98,13 +96,12 @@ $(document).on("click", "i", function(event) {
     var $index = $(this).attr("save-id");
     console.log($index);
 
-    var inputId = "#textarea-" + $index;
+    // var inputId = "#textarea-" + $index;
     var $value = $(this).parent().parent().find("textarea").val();
     console.log(planArray);
 
     planArray[$index] = $value;
     console.log(planArray);
-
 
     localStorage.setItem("savedPlans", JSON.stringify(planArray));
     localStorage.setItem($index, $value);
