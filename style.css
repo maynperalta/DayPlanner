@@ -1,4 +1,4 @@
-/* There was a CSS stylesheet provided with the assignment with many classes already coded out. I had some trouble trying to get them to function properly when generating the elements in JavaScript. Ultimately, I wound up creating classes while I created my rows and columns and coded new CSS here. I was able to use some of it though. The body, textarea, jumbotron, and row selectors I was able to use. The rest I started over with, which took less time than to try and force the other classes to fit.*/
+/* Additional CSS.*/
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -95,7 +95,7 @@ footer {
     margin-bottom: 80px;
 }
 
-/* Although responsiveness wasn't a specific requirement in the ReadMe of the assignment, I took the time to ensure the page would look good on some smaller viewports as well. I haven't worked much with media queries before, save one activity in class, but with the help of a learning assitant and a YouTube video, the page looks decent on tablets and larger smartphones. */
+/* Media query for smaller viewports */
 
 @media all and (max-width: 770px) {
   .row {
